@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+import 'package:state_handle/controller/page_controller/onboarding_controller.dart';
 import '../../provider/future_handlers/popscope_provider.dart';
 import '../../provider/future_handlers/showdialog_provider.dart';
 import '../../provider/state_management/alert_provider.dart';
@@ -21,6 +21,8 @@ class _HomeState extends State<Home> {
     final alerts = context.read<AlertProvider>();
     final pop = context.read<PopscopeProvider>();
     final showss = context.read<ShowBottomSheetProvider>();
+    final myPageController = OnboardingController();
+    final newshow = context.read<showing>();
 
     return Scaffold(
       body: Center(
@@ -47,6 +49,9 @@ class _HomeState extends State<Home> {
               },
               child: const Text("Ok"),
             ),
+            PageView(
+              controller: myPageController.pagecontroller,
+            )
 
 
           ],

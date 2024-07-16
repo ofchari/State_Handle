@@ -22,3 +22,16 @@ class ShowdialogProvider extends ChangeNotifier{
     );
   }
 }
+
+class showing extends ChangeNotifier{
+  Future<void> showse(BuildContext context) async{
+    return showDialog(
+        context: context,
+        builder: (BuildContext context){
+          return AlertDialog(
+
+          );
+        }
+    );
+  }
+}
