@@ -26,6 +26,9 @@ void main() {
           ChangeNotifierProvider(
               create: (_) => ShowBottomSheetProvider()
           ),
+          ChangeNotifierProvider(
+              create: (_) => showing()
+          )
       ],
       child : MyApp()
       ),
