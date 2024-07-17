@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:state_handle/controller/page_controller/onboarding_controller.dart';
+import 'package:state_handle/provider/state_management/pageindex_provider.dart';
 import '../../provider/future_handlers/popscope_provider.dart';
 import '../../provider/future_handlers/showdialog_provider.dart';
 import '../../provider/state_management/alert_provider.dart';
@@ -23,6 +24,7 @@ class _HomeState extends State<Home> {
     final showss = context.read<ShowBottomSheetProvider>();
     final myPageController = OnboardingController();
     final newshow = context.read<showing>();
+    final pagee = context.watch<PageindexProvider>();
 
     return Scaffold(
       body: Center(
@@ -51,6 +53,7 @@ class _HomeState extends State<Home> {
             ),
             PageView(
               controller: myPageController.pagecontroller,
+              onPageChanged: pagee.pagess
             )
 
 

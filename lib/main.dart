@@ -4,6 +4,7 @@ import 'package:state_handle/provider/future_handlers/popscope_provider.dart';
 import 'package:state_handle/provider/future_handlers/showdialog_provider.dart';
 import 'package:state_handle/provider/state_management/alert_provider.dart';
 import 'package:state_handle/provider/state_management/bottom_provider.dart';
+import 'package:state_handle/provider/state_management/pageindex_provider.dart';
 import 'package:state_handle/provider/state_management/showbottomsheet_provider.dart';
 import 'package:state_handle/view/Screens/home.dart';
 
@@ -28,6 +29,9 @@ void main() {
           ),
           ChangeNotifierProvider(
               create: (_) => showing()
+          ),
+          ChangeNotifierProvider(
+              create: (_) => PageindexProvider()
           )
       ],
       child : MyApp()
