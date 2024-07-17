@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:state_handle/controller/page_controller/onboarding_controller.dart';
+import 'package:state_handle/provider/constantfiles_provider/alert_const.dart';
 import 'package:state_handle/provider/state_management/pageindex_provider.dart';
 import '../../provider/future_handlers/popscope_provider.dart';
 import '../../provider/future_handlers/showdialog_provider.dart';
@@ -18,10 +19,10 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    final myshow = context.read<ShowdialogProvider>();
+    final myShow = context.read<ShowdialogProvider>();
     final alerts = context.read<AlertProvider>();
     final pop = context.read<PopscopeProvider>();
-    final showss = context.read<ShowBottomSheetProvider>();
+    final shows = context.read<ShowBottomSheetProvider>();
     final myPageController = OnboardingController();
     final newshow = context.read<showing>();
     final pagee = context.watch<PageindexProvider>();
@@ -34,7 +35,7 @@ class _HomeState extends State<Home> {
             Image.network("https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?cs=srgb&dl=pexels-anjana-c-169994-674010.jpg&fm=jpg"),
             GestureDetector(
               onTap: () {
-                myshow.showDialogue(context);
+                myShow.showDialogue(context);
               },
               child: const Text("Click Here"),
             ),
@@ -47,14 +48,11 @@ class _HomeState extends State<Home> {
             ),
             ElevatedButton(
               onPressed: () {
-                showss.showBottom(context);
+                shows.showBottom(context);
               },
               child: const Text("Ok"),
             ),
-            PageView(
-              controller: myPageController.pagecontroller,
-              onPageChanged: pagee.pagess
-            )
+
 
 
           ],

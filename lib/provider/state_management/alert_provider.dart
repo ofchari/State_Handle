@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 class AlertProvider extends ChangeNotifier{
-  void alert(BuildContext context) async{
+  void alert(BuildContext context){
     notifyListeners();
     Alert(
         context: context,

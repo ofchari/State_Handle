@@ -32,7 +32,7 @@ void main() {
           ),
           ChangeNotifierProvider(
               create: (_) => PageindexProvider()
-          )
+          ),
       ],
       child : MyApp()
       ),
