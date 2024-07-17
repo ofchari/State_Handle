@@ -54,7 +54,7 @@ class _HomeState extends State<Home> {
             ),
             PageView(
               onPageChanged: (index){
-                pagee.currentIndex;
+                pagee.pagess(pagee.currentIndex);
               },
             )
 
