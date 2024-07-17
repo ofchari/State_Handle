@@ -52,6 +52,11 @@ class _HomeState extends State<Home> {
               },
               child: const Text("Ok"),
             ),
+            PageView(
+              onPageChanged: (index){
+                pagee.currentIndex;
+              },
+            )
 
 
 
