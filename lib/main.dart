@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:provider/provider.dart';
 import 'package:state_handle/provider/future_handlers/popscope_provider.dart';
+import 'package:state_handle/provider/future_handlers/showbootom_provider.dart';
 import 'package:state_handle/provider/future_handlers/showdialog_provider.dart';
 import 'package:state_handle/provider/state_management/alert_provider.dart';
 import 'package:state_handle/provider/state_management/bottom_provider.dart';
 import 'package:state_handle/provider/state_management/pageindex_provider.dart';
-import 'package:state_handle/provider/state_management/showbottomsheet_provider.dart';
 import 'package:state_handle/view/Screens/home.dart';
 
 void main() {
@@ -25,10 +26,10 @@ void main() {
               create: (_) => PopscopeProvider()
           ),
           ChangeNotifierProvider(
-              create: (_) => ShowBottomSheetProvider()
+              create: (_) => showing()
           ),
           ChangeNotifierProvider(
-              create: (_) => showing()
+              create: (_) => ShowbootomProvider()
           ),
           ChangeNotifierProvider(
               create: (_) => PageindexProvider()
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:state_handle/controller/page_controller/onboarding_controller.dart';
 import 'package:state_handle/provider/constantfiles_provider/alert_const.dart';
+import 'package:state_handle/provider/future_handlers/showbootom_provider.dart';
 import 'package:state_handle/provider/state_management/pageindex_provider.dart';
 import '../../provider/future_handlers/popscope_provider.dart';
 import '../../provider/future_handlers/showdialog_provider.dart';
 import '../../provider/state_management/alert_provider.dart';
-import '../../provider/state_management/showbottomsheet_provider.dart';
 
 
 class Home extends StatefulWidget {
@@ -22,45 +22,40 @@ class _HomeState extends State<Home> {
     final myShow = context.read<ShowdialogProvider>();
     final alerts = context.read<AlertProvider>();
     final pop = context.read<PopscopeProvider>();
-    final shows = context.read<ShowBottomSheetProvider>();
     final myPageController = OnboardingController();
     final newshow = context.read<showing>();
+    final bottom = context.read<ShowbootomProvider>();
     final pagee = context.watch<PageindexProvider>();
 
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center, // Center the column contents
-          children: [
-            Image.network("https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?cs=srgb&dl=pexels-anjana-c-169994-674010.jpg&fm=jpg"),
-            GestureDetector(
-              onTap: () {
-                myShow.showDialogue(context);
-              },
-              child: const Text("Click Here"),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                alerts.alert(context);
-              },
-              child: const Text("Ok"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                shows.showBottom(context);
-              },
-              child: const Text("Ok"),
-            ),
-            PageView(
-              onPageChanged: (index){
-                pagee.pagess(pagee.currentIndex);
-              },
-            )
-
-
-
-          ],
+    return WillPopScope(
+      onWillPop: ()=> pop.popScopes(context),
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center, // Center the column contents
+            children: [
+              Image.network("https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?cs=srgb&dl=pexels-anjana-c-169994-674010.jpg&fm=jpg"),
+              GestureDetector(
+                onTap: () {
+                  myShow.showDialogue(context);
+                },
+                child: const Text("Click Here"),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  alerts.alert(context);
+                },
+                child: const Text("Ok"),
+              ),
+              GestureDetector(
+                onTap: (){
+                  bottom.showBottomSheet();
+                },
+                  child: Text("Ok")),
+      
+            ],
+          ),
         ),
       ),
     );
