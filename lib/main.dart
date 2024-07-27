@@ -8,6 +8,7 @@ import 'package:state_handle/provider/state_management/alert_provider.dart';
 import 'package:state_handle/provider/state_management/bottom_provider.dart';
 import 'package:state_handle/provider/state_management/pageindex_provider.dart';
 import 'package:state_handle/view/Screens/home.dart';
+import 'package:state_handle/view/Screens/samples_gradient.dart';
 
 void main() {
   runApp(
@@ -53,7 +54,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const Home()
+        home: const SamplesGradient()
       );
   }
 }
